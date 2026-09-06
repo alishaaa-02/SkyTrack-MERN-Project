@@ -25,7 +25,7 @@ const start = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     fs.mkdirSync(path.join(__dirname, 'uploads'), { recursive: true });
-    app.listen(PORT, () => console.log(`SkyTrack API running at http://localhost:${PORT}`));
+    app.listen(PORT, '0.0.0.0', () => console.log(`SkyTrack API running on port ${PORT}`));
   } catch (err) {
     console.error('MongoDB connection failed:', err.message);
     process.exit(1);
